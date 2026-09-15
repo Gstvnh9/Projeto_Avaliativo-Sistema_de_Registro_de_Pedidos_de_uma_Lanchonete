@@ -21,6 +21,7 @@ public class Main {
         double maior = 0;
         double menor = 0;
         int comprasAltas = 0;
+        String maiorCliente = "";
 
 
         do {
@@ -39,6 +40,7 @@ public class Main {
 
             if (compra > maior) {
                 maior = compra;
+                maiorCliente = nome;
             }
 
             if (menor == 0) {
@@ -70,6 +72,7 @@ public class Main {
         System.out.println("Maior valor de compra registrado: R$ " + maior + ".");
         System.out.println("Menor valor de compra registrado: R$ " + menor + ".");
         System.out.println("Quantidade de compras com valor superior a R$ 50,00: " + comprasAltas + ".");
+        System.out.println("Cliente que realizou maior compra: " + maiorCliente + ".");
         System.out.println("=========================================================");
 
     }
