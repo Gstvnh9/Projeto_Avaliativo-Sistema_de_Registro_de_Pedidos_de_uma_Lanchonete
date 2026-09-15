@@ -20,6 +20,7 @@ public class Main {
         double total = 0;
         double maior = 0;
         double menor = 0;
+        int comprasAltas = 0;
 
 
         do {
@@ -46,6 +47,10 @@ public class Main {
                 menor = compra;
             }
 
+            if (compra > 50) {
+                comprasAltas++;
+            }
+
             System.out.println("Pedido cadastrado!");
             pedidos++;
 
@@ -64,6 +69,7 @@ public class Main {
         System.out.println("Ticket médio das vendas: R$ " + ticket + ".");
         System.out.println("Maior valor de compra registrado: R$ " + maior + ".");
         System.out.println("Menor valor de compra registrado: R$ " + menor + ".");
+        System.out.println("Quantidade de compras com valor superior a R$ 50,00: " + comprasAltas + ".");
         System.out.println("=========================================================");
 
     }
