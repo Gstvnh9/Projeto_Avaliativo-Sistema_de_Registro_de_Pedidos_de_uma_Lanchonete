@@ -22,6 +22,10 @@ public class Main {
         double menor = 0;
         int comprasAltas = 0;
         String maiorCliente = "";
+        int compraTrinta = 0;
+        double totalTrinta = 0;
+        double ticket;
+        double mediaTrinta;
 
 
         do {
@@ -53,6 +57,11 @@ public class Main {
                 comprasAltas++;
             }
 
+            if (compra > 30) {
+                compraTrinta++;
+                totalTrinta = totalTrinta + compra;
+            }
+
             System.out.println("Pedido cadastrado!");
             pedidos++;
 
@@ -63,7 +72,8 @@ public class Main {
 
         } while (continuar.equalsIgnoreCase ("SIM"));
 
-        double ticket = total / pedidos;
+        ticket = total / pedidos;
+        mediaTrinta = totalTrinta / compraTrinta;
 
         System.out.println("==================== RELATÓRIO FINAL ====================");
         System.out.println("Quantidade total de pedidos cadastrados: " + pedidos + ".");
@@ -73,6 +83,7 @@ public class Main {
         System.out.println("Menor valor de compra registrado: R$ " + menor + ".");
         System.out.println("Quantidade de compras com valor superior a R$ 50,00: " + comprasAltas + ".");
         System.out.println("Cliente que realizou maior compra: " + maiorCliente + ".");
+        System.out.println("Média de compras acima de R$ 30,00: R$ " + mediaTrinta + ".");
         System.out.println("=========================================================");
 
     }
