@@ -1,17 +1,70 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
+import java.util.Locale;
+
+
 public class Main {
     static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
-        }
+        System.setOut(new PrintStream(System.out, true, StandardCharsets.UTF_8));
+        Scanner entrada = new Scanner (System.in);
+        entrada.useLocale(Locale.US);
+
+        String nome;
+        double compra;
+        String continuar;
+        int pedidos = 0;
+        double total = 0;
+        double maior = 0;
+        double menor = 0;
+
+
+        do {
+            System.out.println("Indique o nome do cliente:");
+            nome = entrada.nextLine();
+
+            System.out.println("Agora indique o valor da compra, do mesmo cliente:");
+            compra = entrada.nextDouble();
+
+            while (compra <= 0) {
+                System.out.println("Insira um valor valido, por favor!");
+                compra = entrada.nextDouble();
+            }
+
+            total = total + compra;
+
+            if (compra > maior) {
+                maior = compra;
+            }
+
+            if (menor == 0) {
+                menor = compra;
+            } else if (compra < menor) {
+                menor = compra;
+            }
+
+            System.out.println("Pedido cadastrado!");
+            pedidos++;
+
+            System.out.println("Você deseja cadastrar um novo pedido?");
+            System.out.println("Responda apenas com 'SIM' ou 'NÃO':");
+            entrada.nextLine();
+            continuar = entrada.nextLine();
+
+        } while (continuar.equalsIgnoreCase ("SIM"));
+
+        double ticket = total / pedidos;
+
+        System.out.println("==================== RELATÓRIO FINAL ====================");
+        System.out.println("Quantidade total de pedidos cadastrados: " + pedidos + ".");
+        System.out.println("Valor total das vendas: R$ " + total + ".");
+        System.out.println("Ticket médio das vendas: R$ " + ticket + ".");
+        System.out.println("Maior valor de compra registrado: R$ " + maior + ".");
+        System.out.println("Menor valor de compra registrado: R$ " + menor + ".");
+        System.out.println("=========================================================");
+
     }
 }
