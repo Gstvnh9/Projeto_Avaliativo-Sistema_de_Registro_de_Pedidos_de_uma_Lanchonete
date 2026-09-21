@@ -113,6 +113,14 @@ public class Main {
 
         if (menu == 3) {
 
+            if (total > 500) {
+                System.out.println("Situação da Meta Diária: ATINGIDA!");
+                System.out.println(" ");
+            } else {
+                System.out.println("Situação da Meta Diária: Infelizmente, não foi dessa vez!");
+                System.out.println(" ");
+            }
+
             System.out.println("Obrigado por usar nosso sistema.");
             System.out.println("Até Logo!");
 
